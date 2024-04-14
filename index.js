@@ -80,8 +80,9 @@ app.get('/app/api/order', async (req, res) => {
     try {
       const orderNumber = req.query.order_number;
   
-      const order = await shopify.order.list({ order_number : orderNumber});
-  
+      const orders = await shopify.order.list({ order_number : orderNumber});
+
+      const order = orders[1];
       if (!order) {
         return res.status(404).json({ error: 'Order not found' });
       }
@@ -90,6 +91,23 @@ app.get('/app/api/order', async (req, res) => {
     } catch (error) {
       console.error('Error:', error);
       res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
+app.post('/app/api/order/cancel/', async (req, res) => {
+    try {
+        const orderNumber = req.body.order_number || req.query.order_number;
+        if (!orderNumber) {
+            return res.status(400).json({ error: 'Order number is required' });
+        }
+        const cancellationResult = await shopify.order.cancel(orderNumber);
+        if (!cancellationResult.success) {
+            return res.status(404).json({ error: 'Order not found or already cancelled' });
+        }
+        res.json({ message: 'Order successfully cancelled' });
+    } catch (error) {
+        console.error('Error:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
     }
 });
 
