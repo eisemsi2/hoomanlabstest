@@ -80,7 +80,7 @@ app.get('/app/api/order', async (req, res) => {
     try {
       const orderNumber = req.query.order_number;
       console.log(orderNumber);
-      const orders = await shopify.order.get(orderNumber);
+      const orders = await shopify.order.list( {name: "#{orderNumber}"} );
 
       const order = orders[0];
       if (!order) {
