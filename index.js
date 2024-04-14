@@ -80,7 +80,7 @@ app.get('/app/api/order', async (req, res) => {
     try {
       const orderNumber = req.query.order_number;
   
-      const order = await shopify.order.get(orderNumber);
+      const order = await shopify.order.list({ order_number : orderNumber});
   
       if (!order) {
         return res.status(404).json({ error: 'Order not found' });
