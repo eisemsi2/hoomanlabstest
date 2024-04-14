@@ -6,6 +6,6 @@ the API is deployed at https://hoomanlabstest-2.onrender.com
 
 /app/api/orders with parameters phone_number returns orders corresponding to the parameters.
 
-/app/api/order with parameter order_number updates the order.
+/app/api/order with parameter order_number returns the order corresponding to order_number.
 
 /app/api/order/cancel with parameter order_number cancels the order.
