@@ -25,7 +25,7 @@ router.get('/:phoneNumber', async (req, res, next) => {
         // console.log("+"+phoneNumber);
         for (let i = 0; i < addresses.length; i++) {
             // console.log(addresses[i].phone);
-            if (addresses[i].phone == (phoneNumber) && addresses[i].phone != null){
+            if ((addresses[i].phone == (phoneNumber) || addresses[i].phone == ("+"+phoneNumber)) && addresses[i].phone != null){
                 refinedaddresses.push(addresses[i]);
             }
         }
