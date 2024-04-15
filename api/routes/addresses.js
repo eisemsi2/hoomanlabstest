@@ -17,7 +17,7 @@ router.get('/:phoneNumber', async (req, res, next) => {
         const customers = await shopify.customer.list();
         let k = -1;
         for (let i = 0; i < customers.length; i++) {
-            if (customers[i].phone == phoneNumber) {
+            if (customers[i].phone == phoneNumber || customers.[i].phone == ("+"+phoneNumber) ) {
                 k = i;
                 break;
             }
