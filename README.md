@@ -1,4 +1,4 @@
-the API is deployed at [https://hoomanlabstest-2.onrender.com](https://hoomanlabstest.onrender.com)
+the API is deployed at (https://hoomanlabstest.onrender.com)
 
 /app/api/addresses with parameter phone number returns addresses corresponding to the phone number.
 
