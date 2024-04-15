@@ -16,7 +16,7 @@ app.use(bodyParser.json());
 app.use('/app/api/addresses', getaddresses);
 app.use('/app/api/address/update', updateaddress);
 app.use('/app/api/orders', orderlist);
-// app.use('/customers', customers); // This route is not used in the app // was created just for debugging
+app.use('/customers', customers); // This route is not used in the app // was created just for debugging
 app.use('/app/api/order', order);
 // app.use('/orders', orders); // This route is not used in the app // was created just for debugging
 app.use('/app/api/order/cancel', cancelorder);
