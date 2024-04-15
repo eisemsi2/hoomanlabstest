@@ -25,7 +25,7 @@ app.use('/app/api/order/cancel', cancelorder);
 
 app.use((req,res,next) => {
     res.status(404).json({
-        message: 'bad request'
+        message: 'PLEASE REQUEST ONE OF THE FOLLOWING URIs AS IN README.'
     })
 });
 
